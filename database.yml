@@ -1,0 +1,54 @@
+users:
+  user@test.com:
+    username: user@test.com
+    articleIds:
+      - 1
+    commentIds:
+      - 1
+  admin@test.com:
+    username: admin@test.com
+    articleIds:
+      - 2
+    commentIds:
+      - 2
+articles:
+  '1':
+    id: 1
+    title: Very First Article
+    url: 'http://firstarticle.com'
+    username: user@test.com
+    commentIds:
+      - 1
+      - 2
+    upvotedBy:
+      - user@test.com
+    downvotedBy: []
+    comments:
+      - &ref_0
+        id: 1
+        body: very first comment!
+        username: user@test.com
+        articleId: 1
+        upvotedBy: []
+        downvotedBy:
+          - user@test.com
+  '2':
+    id: 2
+    title: Another Article
+    url: 'http://anotherarticle.com'
+    username: admin@test.com
+    commentIds: []
+    upvotedBy: []
+    downvotedBy:
+      - admin@test.com
+nextArticleId: 3
+comments:
+  '1': *ref_0
+  '2':
+    id: 2
+    body: second comment
+    username: admin@test.com
+    articleId: 1
+    upvotedBy: []
+    downvotedBy: []
+nextCommentId: 3
